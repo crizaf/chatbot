@@ -1,4 +1,5 @@
 import { StockItemStored, ExchangeStored } from "../../types/StockTypes";
+import { ErrorBoundary } from "react-error-boundary";
 
 const StockMenuItem = ({
   stockItemHandler,
@@ -28,12 +29,14 @@ const StockMenuItem = ({
         </p>
       )}
       {!isReadOnly && (
-        <button
-          className="stock__item"
-          onClick={() => stockItemHandler!(stock)}
-        >
-          {stockText}
-        </button>
+        <ErrorBoundary fallback={<p>⚠️Something went wrong</p>}>
+          <button
+            className="stock__item"
+            onClick={() => stockItemHandler!(stock)}
+          >
+            {stockText}
+          </button>
+        </ErrorBoundary>
       )}
     </div>
   );
