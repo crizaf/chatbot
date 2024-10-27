@@ -9,10 +9,12 @@ const InfoMessage = ({
 }) => {
   const infoClasses = classNames({
     cb__info: true,
-    cb__response: type !== "intro",
+    cb__response: type !== "intro" && type !== "infoMessage",
+    cb__infoMessage: type === "infoMessage",
   });
   const role = "tooltip";
-  const ariaLabel = type !== "intro" ? infoText : "intro";
+  const ariaLabel =
+    type !== "intro" && type !== "infoMessage" ? infoText : "intro";
   return (
     <div className={infoClasses}>
       <p

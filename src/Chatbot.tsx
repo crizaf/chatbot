@@ -38,7 +38,7 @@ function Chatbot() {
       {!isMinimized && (
         <div className="cb-content-scrollable">
           <InfoMessage
-            type="intro"
+            type="infoMessage"
             infoText="Hello and welcome to LSEG chatbot"
           />
           {responseHistory.map(

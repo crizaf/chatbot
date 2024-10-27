@@ -32,14 +32,18 @@ function StockContextProvider({ children }: { children: ReactElement }) {
   );
 
   const setCurrentStageAsHistory = (selectedResponse: string) => {
+    const isShowPriceStage = currentStage.name === STAGES[2].name;
+
     const { options, headerTitle } = currentStage;
     const newResponseHistory = [
       ...responseHistory,
       {
-        menuOptions: options,
+        menuOptions: isShowPriceStage ? [] : options,
         selectedResponse,
         uniqueResponseId: uniqueReponseId++,
-        headerTitle,
+        headerTitle: isShowPriceStage
+          ? headerTitle.replace("Please select an option", "")
+          : headerTitle,
       },
     ] as StockValueType[];
 
