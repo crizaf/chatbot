@@ -16,7 +16,7 @@ const StockMenu = ({
   isReadOnly?: boolean;
 }) => {
   return (
-    <div className="stock__menu">
+    <div className="cb__options">
       <InfoMessage type="intro" infoText={headerTitle} />
       {options.map((option) => {
         const stockTitle = option?.name ?? "";

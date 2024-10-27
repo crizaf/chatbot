@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Chatbot.css";
 import InfoMessage from "./components/messages/InfoMessage";
 import { StockContext } from "./store/stockContext";
 import StockMenu from "./components/stocks/StockMenu";
 import { StockValue } from "./types/StockTypes";
+import { FaRobot, FaRegWindowMinimize } from "react-icons/fa";
+import { FaMaximize } from "react-icons/fa6";
 
 function Chatbot() {
   const {
@@ -12,6 +14,7 @@ function Chatbot() {
     handleSelectedMenuOption,
     responseHistory,
   } = useContext(StockContext) as StockValue;
+  const [isMinimized, setMinimized] = useState(false);
   //used to focus on the latest menu when user selects any of the options
   const bottomRef = useRef<null | HTMLDivElement>(null);
   useEffect(() => {
@@ -20,12 +23,19 @@ function Chatbot() {
     }
   }, [responseHistory]);
 
+  const contentClasses = isMinimized ? "cb-content-min" : "cb-content";
+
   return (
-    <div className="cb">
-      <div className="cb-content">
-        <header className="cb-header">
-          <p>LSEG chatbot</p>
-        </header>
+    <div className={contentClasses}>
+      <header className="cb-header">
+        <p>
+          <FaRobot /> LSEG chatbot
+        </p>
+        <button onClick={() => setMinimized(!isMinimized)}>
+          {isMinimized ? <FaMaximize /> : <FaRegWindowMinimize />}
+        </button>
+      </header>
+      {!isMinimized && (
         <div className="cb-content-scrollable">
           <InfoMessage
             type="intro"
@@ -57,7 +67,7 @@ function Chatbot() {
           />
           <div ref={bottomRef} />
         </div>
-      </div>
+      )}
     </div>
   );
 }
