@@ -15,9 +15,11 @@ const InfoMessage = ({
   const ariaLabel = type !== "intro" ? infoText : "intro";
   return (
     <div className={infoClasses}>
-      <p role={role} aria-label={ariaLabel}>
-        {infoText}
-      </p>
+      <p
+        role={role}
+        aria-label={ariaLabel}
+        dangerouslySetInnerHTML={{ __html: infoText }}
+      ></p>
     </div>
   );
 };

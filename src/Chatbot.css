@@ -14,7 +14,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 100vh;
   margin: 0 20px;
 }
 
@@ -66,12 +66,16 @@ body {
   display: flex;
 }
 
+.cb-content .cb__info:first-child {
+  margin-top: 10px;
+}
+
 .cb-content .cb__info p {
   background-color: #afddff;
   color: black;
   font-size: 15px;
   padding: 10px;
-  margin: 10px 20px;
+  margin: 0px 20px;
   border: 1px solid transparent;
   border-radius: 5px;
 }
@@ -86,7 +90,7 @@ body {
 .cb-content .cb__options {
   display: flex;
   flex-direction: column;
-  margin: 0 20px 20px 20px;
+  margin: 10px 20px 10px 20px;
 }
 
 .cb-content .cb__options .cb__info {
@@ -103,7 +107,7 @@ body {
 .cb-content .stock__item {
   background-color: rgba(255, 255, 255, 0.1);
   color: #4c6070;
-  padding: 10px;
+  padding: 5px 10px;
   font-size: 15px;
   border: 1px solid #afddff;
   cursor: pointer;
@@ -112,11 +116,14 @@ body {
   width: 100%;
   font-weight: bold;
 }
+.cb-content .stock__item:last-child {
+  margin-bottom: 10px;
+}
 
 .cb-content .stock__item--read-only {
   background-color: #afddff;
   color: black;
   font-size: 15px;
-  padding: 10px;
+  padding: 5px 10px;
   margin: 0;
 }

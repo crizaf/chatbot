@@ -77,9 +77,9 @@ function StockContextProvider({ children }: { children: ReactElement }) {
       nextStage.options = getStocksByExchangeCode(exgCode);
     }
     if (isShowPriceStage) {
-      nextStage.headerTitle = `Stock price of ${name} ${code} is ${getStockPriceByStockCode(
+      nextStage.headerTitle = `Stock price of ${name} ${code} is <b>${getStockPriceByStockCode(
         code
-      )}. Please select an option`;
+      )}&#36;</b>. Please select an option`;
     }
 
     setCurrentStage(nextStage);
