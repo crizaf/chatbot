@@ -27,11 +27,11 @@ function Chatbot() {
 
   return (
     <div className={contentClasses}>
-      <header className="cb-header">
+      <header className="cb-header" onClick={() => setMinimized(!isMinimized)}>
         <p>
           <FaRobot /> LSEG chatbot
         </p>
-        <button onClick={() => setMinimized(!isMinimized)}>
+        <button>
           {isMinimized ? <FaMaximize /> : <FaRegWindowMinimize />}
         </button>
       </header>

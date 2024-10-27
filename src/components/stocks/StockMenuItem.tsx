@@ -18,7 +18,7 @@ const StockMenuItem = ({
     stockShortHand === "GO_HOME_OPTION" ? "" : stockShortHand
   }`;
   return (
-    <div>
+    <>
       {isReadOnly && (
         <p
           role="toolbar"
@@ -38,7 +38,7 @@ const StockMenuItem = ({
           </button>
         </ErrorBoundary>
       )}
-    </div>
+    </>
   );
 };
 
