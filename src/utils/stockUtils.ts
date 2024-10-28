@@ -7,6 +7,8 @@ const getExchanges = () => {
       code,
       name: stockExchange,
     })
+  ).sort(({ name: exchangeA }, { name: exchangeB }) =>
+    exchangeA.localeCompare(exchangeB)
   );
 };
 
@@ -26,7 +28,7 @@ const getStocks = () => {
       return allStocks;
     },
     []
-  );
+  ).sort(({ name: stockA }, { name: stockB }) => stockA.localeCompare(stockB));
 };
 
 const getStocksByExchangeCode = (exchangeCode: string) => {
